@@ -1,6 +1,7 @@
 import EventHeader from './components/EventHeader';
 import Expenses from './components/Expenses';
 import Participants from './components/Participants';
+import Result from './components/Result';
 import {
   addExpense,
   addParticipant,
@@ -33,6 +34,7 @@ export default function App() {
         onUpdate={(x) => actualizar((e) => updateExpense(e, x))}
         onRemove={(id) => actualizar((e) => removeExpense(e, id))}
       />
+      <Result event={evento} />
     </main>
   );
 }
