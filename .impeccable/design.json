@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-26T00:00:00Z",
+  "title": "Design System: Divisor de gastos",
+  "extensions": {
+    "colorMeta": {
+      "tinta": { "role": "primary", "displayName": "Tinta de emisión", "canonical": "#1e2a24", "tonalRamp": ["#050d09", "#1c2822", "#3a453f", "#5a645f", "#7d8480", "#a1a7a4", "#c7cac8", "#edefee"] },
+      "guanaco": { "role": "secondary", "displayName": "Guanaco", "canonical": "#b23a30", "tonalRamp": ["#180504", "#42140f", "#71241d", "#a5362c", "#c46055", "#d98f84", "#eabdb6", "#fee9e6"] },
+      "taruca": { "role": "secondary", "displayName": "Taruca", "canonical": "#5e4391", "tonalRamp": ["#0e051f", "#2a1a47", "#493273", "#69519a", "#8877b1", "#a99dc8", "#cbc5df", "#efecfa"] },
+      "yaguarete": { "role": "secondary", "displayName": "Yaguareté", "canonical": "#2a6e4d", "tonalRamp": ["#010f07", "#0a2c1c", "#1a4d34", "#2e704f", "#5e8f74", "#8caf9b", "#bbcfc3", "#e7f1eb"] },
+      "hornero": { "role": "secondary", "displayName": "Hornero", "canonical": "#a4501a", "tonalRamp": ["#140803", "#3b1b09", "#663111", "#954918", "#b56e46", "#cd977b", "#e2c1b0", "#faebe4"] },
+      "condor": { "role": "secondary", "displayName": "Cóndor", "canonical": "#3b566e", "tonalRamp": ["#040c15", "#162735", "#2d4459", "#4b647b", "#718597", "#98a7b5", "#c1cad3", "#eaeff3"] },
+      "ballena": { "role": "secondary", "displayName": "Ballena", "canonical": "#1d6a7a", "tonalRamp": ["#000e12", "#042a32", "#104a56", "#216c7c", "#588c98", "#88acb5", "#b8ced3", "#e6f1f3"] },
+      "peligro": { "role": "tertiary", "displayName": "Rojo sello", "canonical": "#a32a20", "tonalRamp": ["#1f0000", "#490905", "#781a13", "#a73328", "#bf6458", "#d59186", "#e8beb7", "#fee9e5"] },
+      "aviso": { "role": "tertiary", "displayName": "Ocre de aviso", "canonical": "#6e4a00", "tonalRamp": ["#150800", "#362000", "#5a3b00", "#7c5a24", "#987e56", "#b5a286", "#d3c7b6", "#f4ede5"] },
+      "aviso-fondo": { "role": "tertiary", "displayName": "Fondo de aviso", "canonical": "#fbefc8", "tonalRamp": ["#0c0b08", "#272520", "#454238", "#666152", "#89826e", "#ada58a", "#d3c9a8", "#faeec8"] },
+      "papel": { "role": "neutral", "displayName": "Papel moneda", "canonical": "#f2f4ee", "tonalRamp": ["#0b0b0b", "#252524", "#424241", "#61615f", "#828380", "#a4a6a2", "#c8cac5", "#edefe9"] },
+      "papel-hondo": { "role": "neutral", "displayName": "Papel hondo", "canonical": "#e6eae0", "tonalRamp": ["#0b0b0a", "#252524", "#414240", "#60625e", "#81837e", "#a3a69f", "#c7cbc2", "#ecf0e6"] },
+      "blanco": { "role": "neutral", "displayName": "Blanco de marca de agua", "canonical": "#fdfdfb", "tonalRamp": ["#0b0b0b", "#252525", "#424241", "#616160", "#828281", "#a5a5a4", "#c9c9c8", "#eeeeed"] },
+      "tinta-suave": { "role": "neutral", "displayName": "Tinta suave", "canonical": "#4a5a51", "tonalRamp": ["#070d0a", "#1e2822", "#38463e", "#56655d", "#7a867f", "#9fa8a2", "#c5cbc7", "#ecefee"] },
+      "filete": { "role": "neutral", "displayName": "Filete", "canonical": "#c9d1c6", "tonalRamp": ["#0b0b0a", "#242524", "#40433f", "#5f625d", "#7f847d", "#a1a79f", "#c4ccc1", "#eaf1e7"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Numeral del billete", "purpose": "El total gastado, dentro del billete. El signo $ va a 0.45em, elevado." },
+      "numeral-lg": { "displayName": "Numeral grande", "purpose": "Monto de cada transferencia en el resultado." },
+      "numeral-md": { "displayName": "Numeral medio", "purpose": "Lo que puso cada persona, en su celda." },
+      "numeral-sm": { "displayName": "Numeral chico", "purpose": "Monto de cada gasto, alineado a la derecha." },
+      "headline": { "displayName": "Headline", "purpose": "Nombre del evento en el billete." },
+      "title": { "displayName": "Title", "purpose": "Nombres de persona, descripción del gasto, quién le paga a quién, texto de botones." },
+      "body": { "displayName": "Body", "purpose": "Texto corrido." },
+      "body-sm": { "displayName": "Body chico", "purpose": "Pagador, etiquetas de campos, pie del billete." },
+      "label": { "displayName": "Label", "purpose": "Título de cada sección, en mayúsculas y tinta suave." }
+    },
+    "shadows": [
+      { "name": "hoja-levantada", "value": "0 1px 2px rgb(30 42 36 / 0.08), 0 8px 24px rgb(30 42 36 / 0.1)", "purpose": "Formulario de gasto abierto, la única superficie blanca sobre el papel." },
+      { "name": "accion-flotante", "value": "0 6px 18px rgb(30 42 36 / 0.22)", "purpose": "Botón principal en la barra de acción fija inferior." },
+      { "name": "anillo-foco-campo", "value": "0 0 0 3px rgb(30 42 36 / 0.18)", "purpose": "Campos con foco, junto con el borde en tinta." }
+    ],
+    "motion": [
+      { "name": "ease-salida", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Curva de salida para todo el movimiento." },
+      { "name": "presion", "value": "120ms", "purpose": "Escala a 0.98 del botón principal y cambios de fondo en botones y fichas." },
+      { "name": "barra", "value": "600ms", "purpose": "Las barras crecen desde cero al aparecer y se estiran desde su largo anterior al cambiar un monto." }
+    ],
+    "breakpoints": [
+      { "name": "columna", "value": "480px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botón principal",
+      "kind": "button",
+      "refersTo": "boton-principal",
+      "description": "Acción principal en tinta: Agregar gasto, Guardar.",
+      "html": "<button class=\"ds-boton-principal\">Guardar</button>",
+      "css": ".ds-boton-principal { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 52px; padding: 0 20px; border: 0; border-radius: var(--radio, 10px); background: var(--tinta, #1e2a24); color: var(--papel, #f2f4ee); font-family: 'Archivo Variable', system-ui, sans-serif; font-weight: 700; font-size: 1.0625rem; cursor: pointer; transition: transform 120ms cubic-bezier(0.16, 1, 0.3, 1), background-color 120ms; } .ds-boton-principal:active { transform: scale(0.98); } .ds-boton-principal:focus-visible { outline: 3px solid var(--tinta, #1e2a24); outline-offset: 2px; } .ds-boton-principal:disabled { background: var(--papel-hondo, #e6eae0); color: #7d8a82; cursor: not-allowed; }"
+    },
+    {
+      "name": "Botón secundario",
+      "kind": "button",
+      "refersTo": "boton-secundario",
+      "description": "Contorno en tinta: Cancelar, Copiar para WhatsApp.",
+      "html": "<button class=\"ds-boton-secundario\"><svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M9 9h10v10H9zM5 15V5h10\"/></svg>Copiar para WhatsApp</button>",
+      "css": ".ds-boton-secundario { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 52px; padding: 0 20px; border: 1.5px solid var(--tinta, #1e2a24); border-radius: var(--radio, 10px); background: transparent; color: var(--tinta, #1e2a24); font-family: 'Archivo Variable', system-ui, sans-serif; font-weight: 700; font-size: 1.0625rem; cursor: pointer; transition: background-color 120ms; } .ds-boton-secundario:active { background: var(--papel-hondo, #e6eae0); } .ds-boton-secundario:focus-visible { outline: 3px solid var(--tinta, #1e2a24); outline-offset: 2px; }"
+    },
+    {
+      "name": "Botón de ícono lleno",
+      "kind": "button",
+      "refersTo": "icono-boton-lleno",
+      "description": "Cuadrado de 48px en tinta con ícono propio: Agregar participante.",
+      "html": "<button class=\"ds-icono-lleno\" aria-label=\"Agregar participante\"><svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 5v14M5 12h14\"/></svg></button>",
+      "css": ".ds-icono-lleno { display: inline-grid; place-items: center; width: 48px; height: 48px; border: 0; border-radius: var(--radio, 10px); background: var(--tinta, #1e2a24); color: var(--papel, #f2f4ee); cursor: pointer; } .ds-icono-lleno:active { background: #33443b; } .ds-icono-lleno:focus-visible { outline: 3px solid var(--tinta, #1e2a24); outline-offset: 2px; }"
+    },
+    {
+      "name": "Campo",
+      "kind": "input",
+      "refersTo": "campo",
+      "description": "Campo con etiqueta arriba, fondo blanco y borde de filete.",
+      "html": "<label class=\"ds-campo\">Monto<input placeholder=\"18.000,50\" inputmode=\"decimal\"></label>",
+      "css": ".ds-campo { display: grid; gap: 6px; font-family: 'Archivo Variable', system-ui, sans-serif; font-weight: 700; font-size: 0.9375rem; color: var(--tinta, #1e2a24); } .ds-campo input { width: 100%; min-height: 48px; padding: 0 14px; border: 1.5px solid var(--filete, #c9d1c6); border-radius: var(--radio, 10px); background: var(--blanco, #fdfdfb); font: inherit; font-weight: 400; font-size: 1.0625rem; color: inherit; } .ds-campo input::placeholder { color: #6a786f; } .ds-campo input:focus-visible { outline: none; border-color: var(--tinta, #1e2a24); box-shadow: 0 0 0 3px rgb(30 42 36 / 0.18); }"
+    },
+    {
+      "name": "Ficha de Entre quiénes",
+      "kind": "chip",
+      "refersTo": "ficha-entre",
+      "description": "Píldora en el color de denominación de la persona; se rellena al marcarla.",
+      "html": "<label class=\"ds-ficha\" style=\"--c:#b23a30\"><input type=\"checkbox\" checked>Andres</label><label class=\"ds-ficha\" style=\"--c:#5e4391\"><input type=\"checkbox\">Juan</label>",
+      "css": ".ds-ficha { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin: 0 8px 8px 0; padding: 0 14px 0 12px; border: 1.5px solid var(--c); border-radius: 999px; color: var(--c); font-family: 'Archivo Variable', system-ui, sans-serif; font-weight: 700; cursor: pointer; user-select: none; transition: background-color 120ms, color 120ms; } .ds-ficha input { appearance: none; width: 18px; height: 18px; margin: 0; border: 2px solid currentColor; border-radius: 5px; background: transparent; } .ds-ficha:has(input:checked) { background: var(--c); color: #fff; } .ds-ficha input:checked { border-color: #fff; background: center / 14px no-repeat url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E\"); } .ds-ficha:has(input:focus-visible) { outline: 3px solid var(--tinta, #1e2a24); outline-offset: 2px; } .ds-ficha input:focus-visible { outline: none; }"
+    },
+    {
+      "name": "Billete del total",
+      "kind": "card",
+      "refersTo": "billete",
+      "description": "El billete mayor: tinta con guilloché, nombre del evento y el total en numeral condensado.",
+      "html": "<header class=\"ds-billete\"><p class=\"ds-billete-nombre\">Bariloche con amigos</p><p class=\"ds-billete-total\"><span class=\"ds-billete-signo\">$</span>416.300</p><p class=\"ds-billete-pie\">gastado entre 4 personas · 4 gastos</p></header>",
+      "css": ".ds-billete { padding: 14px 18px 18px; border-radius: 14px; background-color: var(--tinta, #1e2a24); background-image: repeating-radial-gradient(circle at 110% -20%, transparent 0 7px, rgb(255 255 255 / 0.07) 7px 8px), repeating-radial-gradient(circle at -10% 120%, transparent 0 9px, rgb(255 255 255 / 0.05) 9px 10px); color: var(--papel, #f2f4ee); font-family: 'Archivo Variable', system-ui, sans-serif; } .ds-billete p { margin: 0; } .ds-billete-nombre { font-size: 1.25rem; font-weight: 750; } .ds-billete-total { margin-top: 6px; font-stretch: 62%; font-weight: 900; font-size: clamp(3.75rem, 19vw, 5.5rem); line-height: 0.9; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; } .ds-billete-signo { font-size: 0.45em; vertical-align: 0.95em; margin-right: 0.06em; } .ds-billete-pie { margin-top: 8px; font-size: 0.9375rem; color: rgb(242 244 238 / 0.82); }"
+    },
+    {
+      "name": "Celda de persona",
+      "kind": "custom",
+      "refersTo": "celda-persona",
+      "description": "Cada persona es un billete: celda entera en su denominación, con lo que puso y una barra en la escala única.",
+      "html": "<div class=\"ds-personas\"><div class=\"ds-persona\" style=\"--c:#b23a30\"><span class=\"ds-persona-nombre\">Andres</span><span class=\"ds-persona-puso\"><span class=\"ds-persona-etiqueta\">puso</span> $240.000</span><span class=\"ds-barra\"><span class=\"ds-barra-relleno\" style=\"width:100%\"></span></span></div><div class=\"ds-persona\" style=\"--c:#5e4391\"><span class=\"ds-persona-nombre\">Juan</span><span class=\"ds-persona-puso\"><span class=\"ds-persona-etiqueta\">puso</span> $58.300</span><span class=\"ds-barra\"><span class=\"ds-barra-relleno\" style=\"width:24%\"></span></span></div></div>",
+      "css": ".ds-personas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; max-width: 480px; } .ds-persona { display: grid; min-height: 96px; padding: 10px 14px 12px; border-radius: var(--radio, 10px); background-color: var(--c); background-image: repeating-radial-gradient(circle at 110% -20%, transparent 0 7px, rgb(255 255 255 / 0.07) 7px 8px), repeating-radial-gradient(circle at -10% 120%, transparent 0 9px, rgb(255 255 255 / 0.05) 9px 10px); color: #fff; font-family: 'Archivo Variable', system-ui, sans-serif; } .ds-persona-nombre { font-weight: 750; font-size: 1.0625rem; padding-top: 10px; } .ds-persona-puso { font-stretch: 70%; font-weight: 850; font-size: 1.625rem; line-height: 1; font-variant-numeric: tabular-nums; } .ds-persona-etiqueta { font-stretch: 100%; font-weight: 700; font-size: 0.8125rem; letter-spacing: 0.02em; } .ds-barra { display: block; height: 6px; margin-top: 10px; border-radius: 3px; background: rgb(255 255 255 / 0.28); overflow: hidden; } .ds-barra-relleno { display: block; height: 100%; border-radius: 3px; background: #fff; transition: width 600ms cubic-bezier(0.16, 1, 0.3, 1); }"
+    },
+    {
+      "name": "Fila de transferencia",
+      "kind": "custom",
+      "refersTo": "fila-transferencia",
+      "description": "Quién le paga a quién, monto en numeral grande, barra en el color de quien recibe y filete punteado de pendiente.",
+      "html": "<ul class=\"ds-transferencias\"><li class=\"ds-transferencia\" style=\"--a:#b23a30\"><span class=\"ds-transferencia-quien\">Sofi → Andres</span><strong class=\"ds-transferencia-monto\">$61.908,33</strong><span class=\"ds-tbarra\"><span class=\"ds-tbarra-relleno\" style=\"width:26%\"></span></span></li></ul>",
+      "css": ".ds-transferencias { list-style: none; margin: 0; padding: 0; max-width: 480px; font-family: 'Archivo Variable', system-ui, sans-serif; color: var(--tinta, #1e2a24); } .ds-transferencia { display: grid; grid-template-columns: 1fr auto; align-items: baseline; column-gap: 12px; padding: 12px 0 14px; border-bottom: 2px dashed var(--filete, #c9d1c6); } .ds-transferencia-quien { font-weight: 700; font-size: 1.0625rem; } .ds-transferencia-monto { font-stretch: 65%; font-weight: 900; font-size: 2rem; line-height: 1; font-variant-numeric: tabular-nums; } .ds-tbarra { grid-column: 1 / -1; display: block; height: 6px; margin-top: 10px; border-radius: 3px; background: var(--papel-hondo, #e6eae0); overflow: hidden; } .ds-tbarra-relleno { display: block; height: 100%; border-radius: 3px; background: var(--a); transition: width 600ms cubic-bezier(0.16, 1, 0.3, 1); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "El billete argentino",
+    "overview": "La pantalla se imprime como papel moneda: un papel frío y apenas verdoso, tinta verde casi negra, y un color de denominación por persona sacado de la serie de fauna (guanaco, taruca, yaguareté, hornero, cóndor, ballena). Cada participante es un billete: una celda entera en su color, con guilloché fino y lo que puso en numeral condensado. El total del evento es el billete mayor, arriba de todo, en tinta.\n\nLa densidad es de una mano y al sol: una sola columna de 480px como máximo, objetivos táctiles de 44px o más, contraste alto en todo (texto blanco sobre cada denominación supera 5:1). Los números mandan: los montos van siempre en Archivo condensado y pesado, con cifras tabulares; el texto queda en Archivo de ancho normal. El dato se dibuja: las barras tienen una sola escala para toda la pantalla, y el estado de una transferencia se lee por la forma del filete, no solo por el color.\n\nSe rechaza explícitamente la lista gris con avatares de iniciales y el verde menta de las apps de dividir gastos, y también parecer banco o juguete.",
+    "keyCharacteristics": [
+      "Papel frío y tinta verde muy oscura como base; el color vive en las personas.",
+      "Un color de denominación por persona, asignado por orden de carga y repetido en todos los lugares donde aparece esa persona.",
+      "Numerales Archivo condensados (wdth 62 a 70) en peso 850 a 900; texto Archivo normal.",
+      "Guilloché solo en el billete del total y en las celdas de persona.",
+      "Íconos SVG propios: trazo de 2px, puntas redondeadas, grilla de 24.",
+      "Plano por defecto; solo flota lo que se superpone al contenido."
+    ],
+    "rules": [
+      { "name": "La Regla de la Denominación", "body": "El color de denominación identifica a una persona y a nada más. Una persona tiene el mismo color en su celda, en su punto de pagador, en su ficha y en las barras. Nunca se usa para acciones, estados ni decoración.", "section": "colors" },
+      { "name": "La Regla del Guilloché", "body": "El guilloché (anillos concéntricos blancos al 5 a 7% de opacidad) aparece solo sobre el billete del total y las celdas de persona. Ninguna otra superficie lo lleva.", "section": "colors" },
+      { "name": "La Regla del Numeral Condensado", "body": "Todo monto de dinero va en Archivo condensado (wdth 62 a 70), peso 850 o más, con cifras tabulares. El texto nunca se condensa; un monto nunca va en ancho normal.", "section": "typography" },
+      { "name": "La Regla de la Escala Única", "body": "Todas las barras de la pantalla (lo que puso cada persona y cada transferencia) comparten una sola escala: lo que puso quien más puso. El largo de una barra es el monto, comparable con cualquier otra.", "section": "layout" },
+      { "name": "La Regla del Papel Plano", "body": "Una superficie lleva sombra solo si se superpone al contenido. Celdas, billete y filas son planas.", "section": "elevation" },
+      { "name": "La Regla del Filete", "body": "El estado se lee por la forma de la línea: punteado es pendiente, pleno es saldado. El color nunca es la única señal.", "section": "shapes" }
+    ],
+    "dos": [
+      "Do asignar a cada persona su color de denominación por orden de carga y repetirlo en toda aparición de esa persona.",
+      "Do escribir todo monto en Archivo condensado (wdth 62 a 70), peso 850 a 900, con cifras tabulares.",
+      "Do dibujar las barras en la escala única de lo que puso quien más puso.",
+      "Do marcar el estado con la forma del filete: punteado pendiente, pleno saldado.",
+      "Do mantener objetivos táctiles de 44px o más y contraste de al menos 4.5:1, también al sol.",
+      "Do usar los íconos SVG propios (trazo de 2px, puntas redondeadas, grilla de 24) para toda acción con ícono."
+    ],
+    "donts": [
+      "Don't usar la lista gris con avatares de iniciales ni el verde menta de las apps de dividir gastos.",
+      "Don't usar un color de denominación para botones, estados o decoración.",
+      "Don't poner guilloché fuera del billete del total y las celdas de persona.",
+      "Don't poner sombras en superficies que no flotan sobre el contenido; nada de sombras negras ni desplazadas.",
+      "Don't escribir un monto en Archivo de ancho normal ni condensar el texto corrido."
+    ]
+  }
+}

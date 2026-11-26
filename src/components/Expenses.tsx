@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { useState, type CSSProperties } from 'react';
 import { isSplitAmongAll } from '../logic/event';
 import { formatARS } from '../logic/money';
 import type { EventState, Expense } from '../logic/types';
+import { colorDe } from '../ui/colors';
 import ExpenseForm from './ExpenseForm';
+import Icon from './Icon';
 
 interface Props {
   event: EventState;
@@ -30,30 +32,55 @@ export default function Expenses({ event, onAdd, onUpdate, onRemove }: Props) {
   }
 
   return (
-    <section>
-      <h2>Gastos</h2>
+    <section className="seccion" aria-labelledby="titulo-gastos">
+      <h2 id="titulo-gastos">Gastos</h2>
       <ul className="gastos" aria-label="Gastos">
         {event.expenses.map((x) => (
-          <li key={x.id} className="gasto">
+          <li
+            key={x.id}
+            className={x.id === abierto ? 'gasto gasto-editando' : 'gasto'}
+            style={{ '--c': colorDe(event, x.payerId) } as CSSProperties}
+          >
             <div className="gasto-info">
-              <div className="fila gasto-linea">
-                <strong>{x.description}</strong>
-                <span>{formatARS(x.amount)}</span>
-              </div>
-              <div>{nombreDe(x.payerId)}</div>
-              <div className="gasto-entre">{entre(x)}</div>
+              <strong className="gasto-desc">{x.description}</strong>
+              <span className="gasto-monto">{formatARS(x.amount)}</span>
+              <span className="gasto-pago">
+                <span className="punto" aria-hidden="true" />
+                <span className="sr-solo">pagó </span>
+                <span>{nombreDe(x.payerId)}</span>
+              </span>
+              <span className="gasto-entre">{entre(x)}</span>
             </div>
-            <button type="button" aria-label={`Editar ${x.description}`} onClick={() => setAbierto(x.id)}>
-              ✎
-            </button>
-            <button type="button" aria-label={`Borrar ${x.description}`} onClick={() => {
-                if (window.confirm(`¿Borrar "${x.description}"?`)) onRemove(x.id);
-              }}>
-              🗑
-            </button>
+            <div className="gasto-acciones">
+              <button
+                type="button"
+                className="icono-boton"
+                aria-label={`Editar ${x.description}`}
+                onClick={() => setAbierto(x.id)}
+              >
+                <Icon nombre="editar" />
+              </button>
+              <button
+                type="button"
+                className="icono-boton"
+                aria-label={`Borrar ${x.description}`}
+                onClick={() => {
+                  if (window.confirm(`¿Borrar "${x.description}"?`)) onRemove(x.id);
+                }}
+              >
+                <Icon nombre="borrar" />
+              </button>
+            </div>
           </li>
         ))}
       </ul>
+      {event.expenses.length === 0 && !formAbierto && (
+        <p className="vacio">
+          {event.participants.length === 0
+            ? 'Primero sumá a la gente; después cargás lo que pagó cada uno.'
+            : 'Todavía no hay gastos.'}
+        </p>
+      )}
       {abierto === 'nuevo' && formAbierto && (
         <ExpenseForm
           event={event}
@@ -77,14 +104,17 @@ export default function Expenses({ event, onAdd, onUpdate, onRemove }: Props) {
         />
       )}
       {!formAbierto && (
-        <button
-          type="button"
-          className="secundario"
-          disabled={event.participants.length === 0}
-          onClick={() => setAbierto('nuevo')}
-        >
-          + Agregar gasto
-        </button>
+        // Fija abajo, al alcance del pulgar, sin importar cuántos gastos haya.
+        <div className="barra-accion">
+          <button
+            type="button"
+            className="boton-principal"
+            disabled={event.participants.length === 0}
+            onClick={() => setAbierto('nuevo')}
+          >
+            + Agregar gasto
+          </button>
+        </div>
       )}
     </section>
   );

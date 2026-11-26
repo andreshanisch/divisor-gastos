@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, type CSSProperties } from 'react';
 import { formatARS, parseAmount } from '../logic/money';
 import type { EventState, Expense } from '../logic/types';
+import { colorDe } from '../ui/colors';
 
 interface Props {
   event: EventState;
@@ -57,7 +58,14 @@ export default function ExpenseForm({ event, initial, onSave, onCancel }: Props)
     >
       <label>
         Descripción
-        <input autoFocus={!initial} value={descripcion} onChange={(ev) => setDescripcion(ev.target.value)} />
+        <input
+          autoFocus={!initial}
+          autoComplete="off"
+          enterKeyHint="next"
+          placeholder="Cena, nafta, súper…"
+          value={descripcion}
+          onChange={(ev) => setDescripcion(ev.target.value)}
+        />
       </label>
       <label>
         Monto
@@ -79,19 +87,21 @@ export default function ExpenseForm({ event, initial, onSave, onCancel }: Props)
           ))}
         </select>
       </label>
-      <fieldset>
+      <fieldset className="entre">
         <legend>Entre quiénes</legend>
-        {event.participants.map((p) => (
-          <label key={p.id} className="check">
-            <input type="checkbox" checked={marcados.includes(p.id)} onChange={() => alternar(p.id)} />
-            {p.name}
-          </label>
-        ))}
+        <div className="entre-opciones">
+          {event.participants.map((p) => (
+            <label key={p.id} className="check" style={{ '--c': colorDe(event, p.id) } as CSSProperties}>
+              <input type="checkbox" checked={marcados.includes(p.id)} onChange={() => alternar(p.id)} />
+              {p.name}
+            </label>
+          ))}
+        </div>
       </fieldset>
       {error && <p role="alert" className="error">{error}</p>}
-      <div className="fila">
-        <button type="submit">Guardar</button>
-        <button type="button" onClick={onCancel}>Cancelar</button>
+      <div className="form-acciones">
+        <button type="submit" className="boton-principal">Guardar</button>
+        <button type="button" className="boton-secundario" onClick={onCancel}>Cancelar</button>
       </div>
     </form>
   );
