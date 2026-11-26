@@ -1,0 +1,61 @@
+/* Mobile-first: una sola columna angosta, centrada. */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  background: #f6f7f9;
+  color: #1c1e21;
+}
+
+.app {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+h1 { font-size: 1.5rem; margin: 0; flex: 1; overflow-wrap: anywhere; }
+h2 { font-size: 1.1rem; margin: 24px 0 8px; }
+
+button, input {
+  min-height: 44px;
+  font: inherit;
+  border-radius: 8px;
+}
+
+input {
+  flex: 1;
+  min-width: 0;
+  padding: 0 12px;
+  border: 1px solid #b8bec7;
+  background: #fff;
+}
+
+button {
+  min-width: 44px;
+  padding: 0 14px;
+  border: 1px solid #b8bec7;
+  background: #fff;
+  cursor: pointer;
+}
+
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+button.secundario { margin-top: 8px; }
+
+.fila { display: flex; gap: 8px; align-items: center; }
+
+.chips { list-style: none; margin: 0 0 12px; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding-left: 14px;
+  border-radius: 999px;
+  background: #e3ecff;
+}
+
+.chip button { border: 0; background: transparent; border-radius: 999px; }
+
+.error { color: #b3261e; margin: 8px 0 0; }
