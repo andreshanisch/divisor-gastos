@@ -59,3 +59,17 @@ button.secundario { margin-top: 8px; }
 .chip button { border: 0; background: transparent; border-radius: 999px; }
 
 .error { color: #b3261e; margin: 8px 0 0; }
+
+/* Gastos */
+.gastos { list-style: none; margin: 0 0 8px; padding: 0; display: grid; gap: 8px; }
+.gasto { display: flex; gap: 8px; align-items: center; padding: 8px 12px; background: #fff; border: 1px solid #d5d9df; border-radius: 8px; }
+.gasto-info { flex: 1; min-width: 0; }
+.gasto-linea { justify-content: space-between; }
+.gasto-entre { font-size: 0.9rem; color: #5a6270; }
+
+.gasto-form { display: grid; gap: 12px; margin-top: 8px; padding: 12px; background: #fff; border: 1px solid #d5d9df; border-radius: 8px; }
+.gasto-form label { display: grid; gap: 4px; }
+.gasto-form select { min-height: 44px; font: inherit; border-radius: 8px; padding: 0 8px; }
+.gasto-form fieldset { border: 1px solid #d5d9df; border-radius: 8px; }
+.gasto-form .check { display: flex; align-items: center; gap: 8px; min-height: 44px; }
+.gasto-form .check input { flex: none; width: 24px; min-height: 24px; }
