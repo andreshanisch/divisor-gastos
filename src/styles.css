@@ -40,6 +40,7 @@ button {
 }
 
 button:disabled { opacity: 0.5; cursor: not-allowed; }
+button[aria-disabled="true"] { opacity: 0.5; cursor: not-allowed; }
 
 button.secundario { margin-top: 8px; }
 
@@ -59,10 +60,11 @@ button.secundario { margin-top: 8px; }
 .chip button { border: 0; background: transparent; border-radius: 999px; }
 
 .error { color: #b3261e; margin: 8px 0 0; }
+.aviso { color: #7a4b00; background: #fff4d6; border: 1px solid #e0b04a; border-radius: 8px; padding: 8px 12px; margin: 0 0 12px; }
 
 /* Gastos */
 .gastos { list-style: none; margin: 0 0 8px; padding: 0; display: grid; gap: 8px; }
-.gasto { display: flex; gap: 8px; align-items: center; padding: 8px 12px; background: #fff; border: 1px solid #d5d9df; border-radius: 8px; }
+.gasto { display: flex; gap: 14px; align-items: center; padding: 8px 12px; background: #fff; border: 1px solid #d5d9df; border-radius: 8px; }
 .gasto-info { flex: 1; min-width: 0; }
 .gasto-linea { justify-content: space-between; }
 .gasto-entre { font-size: 0.9rem; color: #5a6270; }

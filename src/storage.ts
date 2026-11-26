@@ -54,10 +54,13 @@ export function loadEvent(storage?: Almacen): EventState {
   }
 }
 
-export function saveEvent(e: EventState, storage?: Almacen): void {
+/** Devuelve true si se pudo guardar, false si el navegador lo rechazó. */
+export function saveEvent(e: EventState, storage?: Almacen): boolean {
   try {
     (storage ?? localStorage).setItem(STORAGE_KEY, JSON.stringify(e));
+    return true;
   } catch (error) {
     console.warn('No se pudo guardar el evento', error);
+    return false;
   }
 }

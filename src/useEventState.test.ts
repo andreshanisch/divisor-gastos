@@ -1,5 +1,5 @@
 import { act, renderHook } from '@testing-library/react';
-import { beforeEach, describe, expect, it } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { addParticipant, createEvent, renameEvent } from './logic/event';
 import { loadEvent, saveEvent } from './storage';
 import { useEventState } from './useEventState';
@@ -8,7 +8,23 @@ beforeEach(() => {
   localStorage.clear();
 });
 
+afterEach(() => {
+  vi.restoreAllMocks();
+});
+
 describe('useEventState', () => {
+  it('guardadoFallo es false si se guarda bien y true si setItem tira', () => {
+    const { result } = renderHook(() => useEventState());
+    expect(result.current[2]).toBe(false);
+
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+    vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
+      throw new Error('quota');
+    });
+    act(() => result.current[1]((e) => renameEvent(e, 'Asado')));
+    expect(result.current[2]).toBe(true);
+  });
+
   it('carga el evento guardado al montar', () => {
     saveEvent({ ...createEvent(), name: 'Guardado' });
     const { result } = renderHook(() => useEventState());

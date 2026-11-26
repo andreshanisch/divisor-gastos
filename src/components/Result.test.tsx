@@ -55,7 +55,6 @@ describe('resultado', () => {
     await user.selectOptions(screen.getByLabelText('Pagó'), 'Sofi');
     await user.click(screen.getByRole('button', { name: 'Guardar' }));
 
-    const nuevas = within(screen.getByRole('list', { name: 'Transferencias' })).getAllByRole('listitem');
     expect(screen.getByText('Sofi → Andres')).toBeInTheDocument();
     expect(screen.getByText('$8.500')).toBeInTheDocument();
   });
@@ -108,6 +107,7 @@ describe('resultado', () => {
 
   it('"¡Copiado!" desaparece al cambiar el evento, y lo mismo el aviso de copia manual', async () => {
     const user = userEvent.setup();
+    vi.spyOn(window, 'confirm').mockReturnValue(true);
     sembrar([pizza, cerveza]);
     stubClipboard({ writeText: vi.fn().mockResolvedValue(undefined) });
     render(<App />);

@@ -121,11 +121,32 @@ describe('gastos', () => {
 
   it('borrar un gasto lo saca de la lista', async () => {
     const user = userEvent.setup();
+    const confirmar = vi.spyOn(window, 'confirm').mockReturnValue(true);
     sembrar([pizza]);
     render(<App />);
 
     await user.click(screen.getByRole('button', { name: 'Borrar Pizza' }));
+    expect(confirmar).toHaveBeenCalledWith('¿Borrar "Pizza"?');
     expect(screen.queryByText('Pizza')).not.toBeInTheDocument();
+  });
+
+  it('si no se confirma el borrado, el gasto queda', async () => {
+    const user = userEvent.setup();
+    vi.spyOn(window, 'confirm').mockReturnValue(false);
+    sembrar([pizza]);
+    render(<App />);
+
+    await user.click(screen.getByRole('button', { name: 'Borrar Pizza' }));
+    expect(screen.getByText('Pizza')).toBeInTheDocument();
+  });
+
+  it('al abrir "+ Agregar gasto" el foco queda en Descripción', async () => {
+    const user = userEvent.setup();
+    sembrar();
+    render(<App />);
+
+    await user.click(screen.getByRole('button', { name: '+ Agregar gasto' }));
+    expect(screen.getByLabelText('Descripción')).toHaveFocus();
   });
 
   it('tras agregar un participante, un gasto viejo pasa a mostrar la lista de nombres en vez de "entre: todos"', async () => {
@@ -146,6 +167,7 @@ describe('gastos', () => {
 
   it('borrar el gasto que se está editando cierra el formulario y vuelve el botón de agregar', async () => {
     const user = userEvent.setup();
+    vi.spyOn(window, 'confirm').mockReturnValue(true);
     sembrar([pizza]);
     render(<App />);
 

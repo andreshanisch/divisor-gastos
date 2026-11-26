@@ -4,12 +4,13 @@ import type { EventState } from './logic/types';
 
 // `update` se ejecuta de forma síncrona en quien llama: si tira (p. ej. validaciones
 // de logic/event.ts), el error le llega a ese llamador y el estado queda sin cambios.
-export function useEventState(): [EventState, (update: (e: EventState) => EventState) => void] {
+export function useEventState(): [EventState, (update: (e: EventState) => EventState) => void, boolean] {
   const [evento, setEvento] = useState<EventState>(() => loadEvent());
+  const [guardadoFallo, setGuardadoFallo] = useState(false);
   const ultimo = useRef(evento);
 
   useEffect(() => {
-    saveEvent(evento);
+    setGuardadoFallo(!saveEvent(evento));
   }, [evento]);
 
   const actualizar = useCallback((update: (e: EventState) => EventState) => {
@@ -18,5 +19,5 @@ export function useEventState(): [EventState, (update: (e: EventState) => EventS
     setEvento(siguiente);
   }, []);
 
-  return [evento, actualizar];
+  return [evento, actualizar, guardadoFallo];
 }

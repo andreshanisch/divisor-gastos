@@ -57,7 +57,7 @@ export default function ExpenseForm({ event, initial, onSave, onCancel }: Props)
     >
       <label>
         Descripción
-        <input value={descripcion} onChange={(ev) => setDescripcion(ev.target.value)} />
+        <input autoFocus={!initial} value={descripcion} onChange={(ev) => setDescripcion(ev.target.value)} />
       </label>
       <label>
         Monto

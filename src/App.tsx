@@ -14,10 +14,15 @@ import {
 import { useEventState } from './useEventState';
 
 export default function App() {
-  const [evento, actualizar] = useEventState();
+  const [evento, actualizar, guardadoFallo] = useEventState();
 
   return (
     <main className="app">
+      {guardadoFallo && (
+        <p role="alert" className="aviso">
+          No se pudo guardar en este navegador: si recargás la página se pierde lo cargado.
+        </p>
+      )}
       <EventHeader
         event={evento}
         onRename={(nombre) => actualizar((e) => renameEvent(e, nombre))}

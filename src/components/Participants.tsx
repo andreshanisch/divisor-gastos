@@ -40,8 +40,7 @@ export default function Participants({ event, onAdd, onRemove }: Props) {
               <button
                 type="button"
                 aria-label={`Quitar ${p.name}`}
-                disabled={enUso}
-                title={enUso ? 'Primero sacalo de sus gastos' : undefined}
+                aria-disabled={enUso ? 'true' : undefined}
                 onClick={() => intentar(() => onRemove(p.id))}
               >
                 ×

@@ -46,7 +46,9 @@ export default function Expenses({ event, onAdd, onUpdate, onRemove }: Props) {
             <button type="button" aria-label={`Editar ${x.description}`} onClick={() => setAbierto(x.id)}>
               ✎
             </button>
-            <button type="button" aria-label={`Borrar ${x.description}`} onClick={() => onRemove(x.id)}>
+            <button type="button" aria-label={`Borrar ${x.description}`} onClick={() => {
+                if (window.confirm(`¿Borrar "${x.description}"?`)) onRemove(x.id);
+              }}>
               🗑
             </button>
           </li>

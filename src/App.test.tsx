@@ -20,7 +20,7 @@ describe('encabezado y participantes', () => {
 
     await user.type(input, 'Juan');
     await user.click(screen.getByRole('button', { name: 'Agregar participante' }));
-    expect(screen.getByText('Juan')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Quitar Juan' })).toBeInTheDocument();
     expect(input).toHaveValue('');
 
     await user.type(input, 'Ana{Enter}');
@@ -40,7 +40,17 @@ describe('encabezado y participantes', () => {
     expect(screen.queryByRole('alert')).not.toBeInTheDocument();
   });
 
-  it('el botón quitar de alguien con gastos está deshabilitado y explica por qué', () => {
+  it('si no se puede guardar, muestra el aviso arriba', () => {
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+    vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
+      throw new Error('quota');
+    });
+    render(<App />);
+    expect(screen.getByRole('alert')).toHaveTextContent('No se pudo guardar en este navegador');
+  });
+
+  it('quitar a alguien con gastos muestra por qué no se puede y lo deja en la lista', async () => {
+    const user = userEvent.setup();
     localStorage.setItem(
       STORAGE_KEY,
       JSON.stringify({
@@ -55,9 +65,12 @@ describe('encabezado y participantes', () => {
     );
     render(<App />);
     const usado = screen.getByRole('button', { name: 'Quitar Juan' });
-    expect(usado).toBeDisabled();
-    expect(usado).toHaveAttribute('title', 'Primero sacalo de sus gastos');
-    expect(screen.getByRole('button', { name: 'Quitar Ana' })).toBeEnabled();
+    expect(usado).toHaveAttribute('aria-disabled', 'true');
+    expect(screen.getByRole('button', { name: 'Quitar Ana' })).not.toHaveAttribute('aria-disabled');
+
+    await user.click(usado);
+    expect(screen.getByRole('alert')).toHaveTextContent('Primero sacalo de sus gastos');
+    expect(screen.getByRole('button', { name: 'Quitar Juan' })).toBeInTheDocument();
   });
 
   it('quita a un participante sin gastos', async () => {

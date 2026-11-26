@@ -24,8 +24,10 @@ export function parseAmount(text: string): Cents | null {
     return null;
   }
 
+  // Tope: 12 dígitos de pesos (de sobra para cualquier evento) y que entre como entero seguro.
+  if (entero.replace(/^0+(?=\d)/, '').length > 12) return null;
   const cents = Number(entero) * 100 + Number(decimales.padEnd(2, '0'));
-  return cents > 0 ? cents : null;
+  return Number.isSafeInteger(cents) && cents > 0 ? cents : null;
 }
 
 /** Formatea centavos como pesos argentinos: "$18.000" o "$18.000,50". */

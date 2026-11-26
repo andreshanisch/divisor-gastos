@@ -84,6 +84,19 @@ describe('persistencia', () => {
     expect(loadEvent(s)).toEqual(createEvent());
   });
 
+  it('saveEvent devuelve true si guardó y false si setItem tira', () => {
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const guarda = { getItem: () => null, setItem: () => {} };
+    const falla = {
+      getItem: () => null,
+      setItem: () => {
+        throw new Error('cuota llena');
+      },
+    };
+    expect(saveEvent(evento, guarda)).toBe(true);
+    expect(saveEvent(evento, falla)).toBe(false);
+  });
+
   it('setItem que tira → no tira y avisa con warn', () => {
     const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
     const s = {
