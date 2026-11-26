@@ -47,8 +47,8 @@ El primer objetivo es tener un ejercicio para probar el flujo completo de desarr
 
 - Los montos se manejan **en centavos, como enteros**, para evitar errores de punto flotante.
 - **Balance de cada persona** = lo que pagó − lo que le corresponde pagar.
-- **Reparto de un gasto:** se divide en partes iguales entre sus participantes. Si sobran centavos, se asignan de a uno a los primeros participantes en orden de carga. Así el reparto es determinístico y siempre suma exactamente el total. *(Decisión de Claude)*
-- **Transferencias:** algoritmo greedy. Se toma al que más debe y al que más tiene que cobrar, se salda lo que se pueda y se repite. Garantiza como mucho n − 1 transferencias. Encontrar el mínimo exacto es un problema computacionalmente difícil, y el greedy es la solución estándar para grupos chicos. *(Decisión de Claude)*
+- **Reparto de un gasto:** se divide en partes iguales entre sus participantes. Si sobran centavos, se asignan de a uno a los primeros participantes en orden de carga. Así el reparto es determinístico y siempre suma exactamente el total. *(Decisión de diseño)*
+- **Transferencias:** algoritmo greedy. Se toma al que más debe y al que más tiene que cobrar, se salda lo que se pueda y se repite. Garantiza como mucho n − 1 transferencias. Encontrar el mínimo exacto es un problema computacionalmente difícil, y el greedy es la solución estándar para grupos chicos. *(Decisión de diseño)*
 - Invariantes que los tests tienen que cubrir:
   - la suma de todos los balances es 0;
   - aplicar las transferencias deja a todos en 0.
@@ -84,16 +84,16 @@ El primer objetivo es tener un ejercicio para probar el flujo completo de desarr
 ```
 
 - Nombre del evento editable.
-- Participantes: agregar y quitar. No se puede quitar a alguien que pagó o participa en algún gasto sin antes sacarlo de esos gastos. *(Decisión de Claude)*
+- Participantes: agregar y quitar. No se puede quitar a alguien que pagó o participa en algún gasto sin antes sacarlo de esos gastos. *(Decisión de diseño)*
 - Gasto: descripción, monto, quién pagó y entre quiénes (todos marcados por defecto). Se puede editar y borrar.
 - El resultado se recalcula solo con cada cambio.
-- "Copiar para WhatsApp" copia un texto plano con el nombre del evento y la lista de transferencias. *(Decisión de Claude)*
+- "Copiar para WhatsApp" copia un texto plano con el nombre del evento y la lista de transferencias. *(Decisión de diseño)*
 - "Nuevo evento" borra el actual, previa confirmación.
-- Moneda: pesos, con formato argentino ($18.000,50). *(Decisión de Claude)*
+- Moneda: pesos, con formato argentino ($18.000,50). *(Decisión de diseño)*
 
 ### Persistencia
 
-- El evento en curso se guarda en `localStorage` con cada cambio y se recupera al abrir la página. Hay un solo evento a la vez. *(Decisión de Claude)*
+- El evento en curso se guarda en `localStorage` con cada cambio y se recupera al abrir la página. Hay un solo evento a la vez. *(Decisión de diseño)*
 
 ### Herramientas
 
