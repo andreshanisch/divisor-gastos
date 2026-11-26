@@ -4,6 +4,8 @@ import { formatARS } from '../logic/money';
 import { computePaid } from '../logic/totals';
 import type { EventState } from '../logic/types';
 import { colorDe } from '../ui/colors';
+import Animal from './Animal';
+import BilleteFondo from './BilleteFondo';
 import Icon from './Icon';
 
 interface Props {
@@ -40,11 +42,16 @@ export default function Participants({ event, onAdd, onRemove }: Props) {
       <h2 id="titulo-participantes">Participantes</h2>
       {event.participants.length > 0 && (
         <ul className="personas">
-          {event.participants.map((p) => {
+          {event.participants.map((p, i) => {
             const enUso = isParticipantInUse(event, p.id);
             const puso = pagado.get(p.id) ?? 0;
+            const color = colorDe(event, p.id);
             return (
-              <li key={p.id} className="persona" style={{ '--c': colorDe(event, p.id) } as CSSProperties}>
+              <li key={p.id} className="persona" style={{ '--c': color } as CSSProperties}>
+                <BilleteFondo
+                  color={color}
+                  motivo={(relleno) => <Animal indice={i} relleno={relleno} fondo={color} />}
+                />
                 <span className="persona-nombre">{p.name}</span>
                 <button
                   type="button"
@@ -56,7 +63,8 @@ export default function Participants({ event, onAdd, onRemove }: Props) {
                   <Icon nombre="quitar" />
                 </button>
                 <span className="persona-puso">
-                  <span className="persona-etiqueta">puso</span> {formatARS(puso)}
+                  <span className="persona-etiqueta">puso</span>
+                  <span className="persona-numeral">{formatARS(puso)}</span>
                 </span>
                 <span className="barra" aria-hidden="true">
                   <span className="barra-relleno" style={{ width: `${(puso / escala) * 100}%` }} />

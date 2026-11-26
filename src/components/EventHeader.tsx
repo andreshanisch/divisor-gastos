@@ -1,8 +1,13 @@
-import { useState } from 'react';
+import { useState, type CSSProperties } from 'react';
 import { formatARS } from '../logic/money';
 import { totalSpent } from '../logic/totals';
 import type { EventState } from '../logic/types';
+import BilleteFondo from './BilleteFondo';
 import Icon from './Icon';
+import Monedas from './Monedas';
+
+// La tinta del billete mayor (igual a --tinta en styles.css).
+const TINTA = '#1e2a24';
 
 interface Props {
   event: EventState;
@@ -30,6 +35,13 @@ export default function EventHeader({ event, onRename, onNewEvent }: Props) {
 
   return (
     <header className="billete">
+      <BilleteFondo
+        color={TINTA}
+        ancho={178}
+        lado="derecha"
+        opacidad={0.5}
+        motivo={(relleno) => <Monedas relleno={relleno} fondo={TINTA} />}
+      />
       <div className="billete-cabeza">
         {editando ? (
           <form
@@ -65,7 +77,12 @@ export default function EventHeader({ event, onRename, onNewEvent }: Props) {
           Nuevo evento
         </button>
       </div>
-      <p className="billete-total" aria-label={`Total gastado: ${formatARS(total)}`}>
+      <p
+        className="billete-total"
+        aria-label={`Total gastado: ${formatARS(total)}`}
+        // Los totales largos achican el numeral para que no pise la marca de agua.
+        style={{ '--largo': Math.max(7, formatARS(total).length - 1) } as CSSProperties}
+      >
         <span className="billete-signo">$</span>
         {formatARS(total).slice(1)}
       </p>

@@ -4,45 +4,369 @@
   "title": "Design System: Divisor de gastos",
   "extensions": {
     "colorMeta": {
-      "tinta": { "role": "primary", "displayName": "Tinta de emisión", "canonical": "#1e2a24", "tonalRamp": ["#050d09", "#1c2822", "#3a453f", "#5a645f", "#7d8480", "#a1a7a4", "#c7cac8", "#edefee"] },
-      "guanaco": { "role": "secondary", "displayName": "Guanaco", "canonical": "#b23a30", "tonalRamp": ["#180504", "#42140f", "#71241d", "#a5362c", "#c46055", "#d98f84", "#eabdb6", "#fee9e6"] },
-      "taruca": { "role": "secondary", "displayName": "Taruca", "canonical": "#5e4391", "tonalRamp": ["#0e051f", "#2a1a47", "#493273", "#69519a", "#8877b1", "#a99dc8", "#cbc5df", "#efecfa"] },
-      "yaguarete": { "role": "secondary", "displayName": "Yaguareté", "canonical": "#2a6e4d", "tonalRamp": ["#010f07", "#0a2c1c", "#1a4d34", "#2e704f", "#5e8f74", "#8caf9b", "#bbcfc3", "#e7f1eb"] },
-      "hornero": { "role": "secondary", "displayName": "Hornero", "canonical": "#a4501a", "tonalRamp": ["#140803", "#3b1b09", "#663111", "#954918", "#b56e46", "#cd977b", "#e2c1b0", "#faebe4"] },
-      "condor": { "role": "secondary", "displayName": "Cóndor", "canonical": "#3b566e", "tonalRamp": ["#040c15", "#162735", "#2d4459", "#4b647b", "#718597", "#98a7b5", "#c1cad3", "#eaeff3"] },
-      "ballena": { "role": "secondary", "displayName": "Ballena", "canonical": "#1d6a7a", "tonalRamp": ["#000e12", "#042a32", "#104a56", "#216c7c", "#588c98", "#88acb5", "#b8ced3", "#e6f1f3"] },
-      "peligro": { "role": "tertiary", "displayName": "Rojo sello", "canonical": "#a32a20", "tonalRamp": ["#1f0000", "#490905", "#781a13", "#a73328", "#bf6458", "#d59186", "#e8beb7", "#fee9e5"] },
-      "aviso": { "role": "tertiary", "displayName": "Ocre de aviso", "canonical": "#6e4a00", "tonalRamp": ["#150800", "#362000", "#5a3b00", "#7c5a24", "#987e56", "#b5a286", "#d3c7b6", "#f4ede5"] },
-      "aviso-fondo": { "role": "tertiary", "displayName": "Fondo de aviso", "canonical": "#fbefc8", "tonalRamp": ["#0c0b08", "#272520", "#454238", "#666152", "#89826e", "#ada58a", "#d3c9a8", "#faeec8"] },
-      "papel": { "role": "neutral", "displayName": "Papel moneda", "canonical": "#f2f4ee", "tonalRamp": ["#0b0b0b", "#252524", "#424241", "#61615f", "#828380", "#a4a6a2", "#c8cac5", "#edefe9"] },
-      "papel-hondo": { "role": "neutral", "displayName": "Papel hondo", "canonical": "#e6eae0", "tonalRamp": ["#0b0b0a", "#252524", "#414240", "#60625e", "#81837e", "#a3a69f", "#c7cbc2", "#ecf0e6"] },
-      "blanco": { "role": "neutral", "displayName": "Blanco de marca de agua", "canonical": "#fdfdfb", "tonalRamp": ["#0b0b0b", "#252525", "#424241", "#616160", "#828281", "#a5a5a4", "#c9c9c8", "#eeeeed"] },
-      "tinta-suave": { "role": "neutral", "displayName": "Tinta suave", "canonical": "#4a5a51", "tonalRamp": ["#070d0a", "#1e2822", "#38463e", "#56655d", "#7a867f", "#9fa8a2", "#c5cbc7", "#ecefee"] },
-      "filete": { "role": "neutral", "displayName": "Filete", "canonical": "#c9d1c6", "tonalRamp": ["#0b0b0a", "#242524", "#40433f", "#5f625d", "#7f847d", "#a1a79f", "#c4ccc1", "#eaf1e7"] }
+      "tinta": {
+        "role": "primary",
+        "displayName": "Tinta de emisión",
+        "canonical": "#1e2a24",
+        "tonalRamp": [
+          "#050d09",
+          "#1c2822",
+          "#3a453f",
+          "#5a645f",
+          "#7d8480",
+          "#a1a7a4",
+          "#c7cac8",
+          "#edefee"
+        ]
+      },
+      "guanaco": {
+        "role": "secondary",
+        "displayName": "Guanaco",
+        "canonical": "#b23a30",
+        "tonalRamp": [
+          "#180504",
+          "#42140f",
+          "#71241d",
+          "#a5362c",
+          "#c46055",
+          "#d98f84",
+          "#eabdb6",
+          "#fee9e6"
+        ]
+      },
+      "taruca": {
+        "role": "secondary",
+        "displayName": "Taruca",
+        "canonical": "#5e4391",
+        "tonalRamp": [
+          "#0e051f",
+          "#2a1a47",
+          "#493273",
+          "#69519a",
+          "#8877b1",
+          "#a99dc8",
+          "#cbc5df",
+          "#efecfa"
+        ]
+      },
+      "yaguarete": {
+        "role": "secondary",
+        "displayName": "Yaguareté",
+        "canonical": "#2a6e4d",
+        "tonalRamp": [
+          "#010f07",
+          "#0a2c1c",
+          "#1a4d34",
+          "#2e704f",
+          "#5e8f74",
+          "#8caf9b",
+          "#bbcfc3",
+          "#e7f1eb"
+        ]
+      },
+      "hornero": {
+        "role": "secondary",
+        "displayName": "Hornero",
+        "canonical": "#a4501a",
+        "tonalRamp": [
+          "#140803",
+          "#3b1b09",
+          "#663111",
+          "#954918",
+          "#b56e46",
+          "#cd977b",
+          "#e2c1b0",
+          "#faebe4"
+        ]
+      },
+      "condor": {
+        "role": "secondary",
+        "displayName": "Cóndor",
+        "canonical": "#3b566e",
+        "tonalRamp": [
+          "#040c15",
+          "#162735",
+          "#2d4459",
+          "#4b647b",
+          "#718597",
+          "#98a7b5",
+          "#c1cad3",
+          "#eaeff3"
+        ]
+      },
+      "ballena": {
+        "role": "secondary",
+        "displayName": "Ballena",
+        "canonical": "#1d6a7a",
+        "tonalRamp": [
+          "#000e12",
+          "#042a32",
+          "#104a56",
+          "#216c7c",
+          "#588c98",
+          "#88acb5",
+          "#b8ced3",
+          "#e6f1f3"
+        ]
+      },
+      "peligro": {
+        "role": "tertiary",
+        "displayName": "Rojo sello",
+        "canonical": "#a32a20",
+        "tonalRamp": [
+          "#1f0000",
+          "#490905",
+          "#781a13",
+          "#a73328",
+          "#bf6458",
+          "#d59186",
+          "#e8beb7",
+          "#fee9e5"
+        ]
+      },
+      "aviso": {
+        "role": "tertiary",
+        "displayName": "Ocre de aviso",
+        "canonical": "#6e4a00",
+        "tonalRamp": [
+          "#150800",
+          "#362000",
+          "#5a3b00",
+          "#7c5a24",
+          "#987e56",
+          "#b5a286",
+          "#d3c7b6",
+          "#f4ede5"
+        ]
+      },
+      "aviso-fondo": {
+        "role": "tertiary",
+        "displayName": "Fondo de aviso",
+        "canonical": "#fbefc8",
+        "tonalRamp": [
+          "#0c0b08",
+          "#272520",
+          "#454238",
+          "#666152",
+          "#89826e",
+          "#ada58a",
+          "#d3c9a8",
+          "#faeec8"
+        ]
+      },
+      "papel": {
+        "role": "neutral",
+        "displayName": "Papel moneda",
+        "canonical": "#f2f4ee",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#252524",
+          "#424241",
+          "#61615f",
+          "#828380",
+          "#a4a6a2",
+          "#c8cac5",
+          "#edefe9"
+        ]
+      },
+      "papel-hondo": {
+        "role": "neutral",
+        "displayName": "Papel hondo",
+        "canonical": "#e6eae0",
+        "tonalRamp": [
+          "#0b0b0a",
+          "#252524",
+          "#414240",
+          "#60625e",
+          "#81837e",
+          "#a3a69f",
+          "#c7cbc2",
+          "#ecf0e6"
+        ]
+      },
+      "blanco": {
+        "role": "neutral",
+        "displayName": "Blanco de marca de agua",
+        "canonical": "#fdfdfb",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#252525",
+          "#424241",
+          "#616160",
+          "#828281",
+          "#a5a5a4",
+          "#c9c9c8",
+          "#eeeeed"
+        ]
+      },
+      "tinta-suave": {
+        "role": "neutral",
+        "displayName": "Tinta suave",
+        "canonical": "#4a5a51",
+        "tonalRamp": [
+          "#070d0a",
+          "#1e2822",
+          "#38463e",
+          "#56655d",
+          "#7a867f",
+          "#9fa8a2",
+          "#c5cbc7",
+          "#ecefee"
+        ]
+      },
+      "filete": {
+        "role": "neutral",
+        "displayName": "Filete",
+        "canonical": "#c9d1c6",
+        "tonalRamp": [
+          "#0b0b0a",
+          "#242524",
+          "#40433f",
+          "#5f625d",
+          "#7f847d",
+          "#a1a79f",
+          "#c4ccc1",
+          "#eaf1e7"
+        ]
+      },
+      "pinguino": {
+        "role": "secondary",
+        "displayName": "Pingüino",
+        "canonical": "#2b3f8c",
+        "tonalRamp": [
+          "#04060e",
+          "#0d132a",
+          "#18234d",
+          "#293c85",
+          "#6b79af",
+          "#a0a9cb",
+          "#ced3e5",
+          "#f0f2f7"
+        ]
+      },
+      "carpincho": {
+        "role": "secondary",
+        "displayName": "Carpincho",
+        "canonical": "#6b4a2b",
+        "tonalRamp": [
+          "#0b0704",
+          "#20160d",
+          "#3b2918",
+          "#664629",
+          "#97806b",
+          "#bcaea0",
+          "#ddd5ce",
+          "#f5f2f0"
+        ]
+      },
+      "nandu": {
+        "role": "secondary",
+        "displayName": "Ñandú",
+        "canonical": "#59631e",
+        "tonalRamp": [
+          "#090a03",
+          "#1b1e09",
+          "#313611",
+          "#555e1d",
+          "#8b9262",
+          "#b4b99a",
+          "#d9dbcb",
+          "#f3f4ef"
+        ]
+      },
+      "tatu": {
+        "role": "secondary",
+        "displayName": "Tatú",
+        "canonical": "#7d2448",
+        "tonalRamp": [
+          "#0d0407",
+          "#260b16",
+          "#451428",
+          "#772244",
+          "#a4667f",
+          "#c59cad",
+          "#e1cdd5",
+          "#f6f0f2"
+        ]
+      }
     },
     "typographyMeta": {
-      "display": { "displayName": "Numeral del billete", "purpose": "El total gastado, dentro del billete. El signo $ va a 0.45em, elevado." },
-      "numeral-lg": { "displayName": "Numeral grande", "purpose": "Monto de cada transferencia en el resultado." },
-      "numeral-md": { "displayName": "Numeral medio", "purpose": "Lo que puso cada persona, en su celda." },
-      "numeral-sm": { "displayName": "Numeral chico", "purpose": "Monto de cada gasto, alineado a la derecha." },
-      "headline": { "displayName": "Headline", "purpose": "Nombre del evento en el billete." },
-      "title": { "displayName": "Title", "purpose": "Nombres de persona, descripción del gasto, quién le paga a quién, texto de botones." },
-      "body": { "displayName": "Body", "purpose": "Texto corrido." },
-      "body-sm": { "displayName": "Body chico", "purpose": "Pagador, etiquetas de campos, pie del billete." },
-      "label": { "displayName": "Label", "purpose": "Título de cada sección, en mayúsculas y tinta suave." }
+      "display": {
+        "displayName": "Numeral del billete",
+        "purpose": "El total gastado, dentro del billete. El signo $ va a 0.45em, elevado."
+      },
+      "numeral-lg": {
+        "displayName": "Numeral grande",
+        "purpose": "Monto de cada transferencia en el resultado."
+      },
+      "numeral-md": {
+        "displayName": "Numeral medio",
+        "purpose": "Lo que puso cada persona, en su celda."
+      },
+      "numeral-sm": {
+        "displayName": "Numeral chico",
+        "purpose": "Monto de cada gasto, alineado a la derecha."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Nombre del evento en el billete."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Nombres de persona, descripción del gasto, quién le paga a quién, texto de botones."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Texto corrido."
+      },
+      "body-sm": {
+        "displayName": "Body chico",
+        "purpose": "Pagador, etiquetas de campos, pie del billete."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Título de cada sección, en mayúsculas y tinta suave."
+      }
     },
     "shadows": [
-      { "name": "hoja-levantada", "value": "0 1px 2px rgb(30 42 36 / 0.08), 0 8px 24px rgb(30 42 36 / 0.1)", "purpose": "Formulario de gasto abierto, la única superficie blanca sobre el papel." },
-      { "name": "accion-flotante", "value": "0 6px 18px rgb(30 42 36 / 0.22)", "purpose": "Botón principal en la barra de acción fija inferior." },
-      { "name": "anillo-foco-campo", "value": "0 0 0 3px rgb(30 42 36 / 0.18)", "purpose": "Campos con foco, junto con el borde en tinta." }
+      {
+        "name": "hoja-levantada",
+        "value": "0 1px 2px rgb(30 42 36 / 0.08), 0 8px 24px rgb(30 42 36 / 0.1)",
+        "purpose": "Formulario de gasto abierto, la única superficie blanca sobre el papel."
+      },
+      {
+        "name": "accion-flotante",
+        "value": "0 6px 18px rgb(30 42 36 / 0.22)",
+        "purpose": "Botón principal en la barra de acción fija inferior."
+      },
+      {
+        "name": "anillo-foco-campo",
+        "value": "0 0 0 3px rgb(30 42 36 / 0.18)",
+        "purpose": "Campos con foco, junto con el borde en tinta."
+      }
     ],
     "motion": [
-      { "name": "ease-salida", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Curva de salida para todo el movimiento." },
-      { "name": "presion", "value": "120ms", "purpose": "Escala a 0.98 del botón principal y cambios de fondo en botones y fichas." },
-      { "name": "barra", "value": "600ms", "purpose": "Las barras crecen desde cero al aparecer y se estiran desde su largo anterior al cambiar un monto." }
+      {
+        "name": "ease-salida",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Curva de salida para todo el movimiento."
+      },
+      {
+        "name": "presion",
+        "value": "120ms",
+        "purpose": "Escala a 0.98 del botón principal y cambios de fondo en botones y fichas."
+      },
+      {
+        "name": "barra",
+        "value": "600ms",
+        "purpose": "Las barras crecen desde cero al aparecer y se estiran desde su largo anterior al cambiar un monto."
+      }
     ],
     "breakpoints": [
-      { "name": "columna", "value": "480px" }
+      {
+        "name": "columna",
+        "value": "480px"
+      }
     ]
   },
   "components": [
@@ -113,7 +437,7 @@
   ],
   "narrative": {
     "northStar": "El billete argentino",
-    "overview": "La pantalla se imprime como papel moneda: un papel frío y apenas verdoso, tinta verde casi negra, y un color de denominación por persona sacado de la serie de fauna (guanaco, taruca, yaguareté, hornero, cóndor, ballena). Cada participante es un billete: una celda entera en su color, con guilloché fino y lo que puso en numeral condensado. El total del evento es el billete mayor, arriba de todo, en tinta.\n\nLa densidad es de una mano y al sol: una sola columna de 480px como máximo, objetivos táctiles de 44px o más, contraste alto en todo (texto blanco sobre cada denominación supera 5:1). Los números mandan: los montos van siempre en Archivo condensado y pesado, con cifras tabulares; el texto queda en Archivo de ancho normal. El dato se dibuja: las barras tienen una sola escala para toda la pantalla, y el estado de una transferencia se lee por la forma del filete, no solo por el color.\n\nSe rechaza explícitamente la lista gris con avatares de iniciales y el verde menta de las apps de dividir gastos, y también parecer banco o juguete.",
+    "overview": "La pantalla se imprime como papel moneda: un papel frío y apenas verdoso, tinta verde casi negra, y un color de denominación por persona sacado de la serie de fauna (guanaco, taruca, yaguareté, hornero, cóndor, ballena, pingüino, carpincho, ñandú, tatú). Cada participante es un billete: una celda entera en su color, con guilloché fino y lo que puso en numeral condensado. El total del evento es el billete mayor, arriba de todo, en tinta.\n\nLa densidad es de una mano y al sol: una sola columna de 480px como máximo, objetivos táctiles de 44px o más, contraste alto en todo (texto blanco sobre cada denominación supera 5:1). Los números mandan: los montos van siempre en Archivo condensado y pesado, con cifras tabulares; el texto queda en Archivo de ancho normal. El dato se dibuja: las barras tienen una sola escala para toda la pantalla, y el estado de una transferencia se lee por la forma del filete, no solo por el color.\n\nSe rechaza explícitamente la lista gris con avatares de iniciales y el verde menta de las apps de dividir gastos, y también parecer banco o juguete.",
     "keyCharacteristics": [
       "Papel frío y tinta verde muy oscura como base; el color vive en las personas.",
       "Un color de denominación por persona, asignado por orden de carga y repetido en todos los lugares donde aparece esa persona.",
@@ -123,12 +447,36 @@
       "Plano por defecto; solo flota lo que se superpone al contenido."
     ],
     "rules": [
-      { "name": "La Regla de la Denominación", "body": "El color de denominación identifica a una persona y a nada más. Una persona tiene el mismo color en su celda, en su punto de pagador, en su ficha y en las barras. Nunca se usa para acciones, estados ni decoración.", "section": "colors" },
-      { "name": "La Regla del Guilloché", "body": "El guilloché (anillos concéntricos blancos al 5 a 7% de opacidad) aparece solo sobre el billete del total y las celdas de persona. Ninguna otra superficie lo lleva.", "section": "colors" },
-      { "name": "La Regla del Numeral Condensado", "body": "Todo monto de dinero va en Archivo condensado (wdth 62 a 70), peso 850 o más, con cifras tabulares. El texto nunca se condensa; un monto nunca va en ancho normal.", "section": "typography" },
-      { "name": "La Regla de la Escala Única", "body": "Todas las barras de la pantalla (lo que puso cada persona y cada transferencia) comparten una sola escala: lo que puso quien más puso. El largo de una barra es el monto, comparable con cualquier otra.", "section": "layout" },
-      { "name": "La Regla del Papel Plano", "body": "Una superficie lleva sombra solo si se superpone al contenido. Celdas, billete y filas son planas.", "section": "elevation" },
-      { "name": "La Regla del Filete", "body": "El estado se lee por la forma de la línea: punteado es pendiente, pleno es saldado. El color nunca es la única señal.", "section": "shapes" }
+      {
+        "name": "La Regla de la Denominación",
+        "body": "El color de denominación identifica a una persona y a nada más. Una persona tiene el mismo color en su celda, en su punto de pagador, en su ficha y en las barras. Nunca se usa para acciones, estados ni decoración.",
+        "section": "colors"
+      },
+      {
+        "name": "La Regla del Guilloché",
+        "body": "El guilloché (anillos concéntricos blancos al 5 a 7% de opacidad) aparece solo sobre el billete del total y las celdas de persona. Ninguna otra superficie lo lleva.",
+        "section": "colors"
+      },
+      {
+        "name": "La Regla del Numeral Condensado",
+        "body": "Todo monto de dinero va en Archivo condensado (wdth 62 a 70), peso 850 o más, con cifras tabulares. El texto nunca se condensa; un monto nunca va en ancho normal.",
+        "section": "typography"
+      },
+      {
+        "name": "La Regla de la Escala Única",
+        "body": "Todas las barras de la pantalla (lo que puso cada persona y cada transferencia) comparten una sola escala: lo que puso quien más puso. El largo de una barra es el monto, comparable con cualquier otra.",
+        "section": "layout"
+      },
+      {
+        "name": "La Regla del Papel Plano",
+        "body": "Una superficie lleva sombra solo si se superpone al contenido. Celdas, billete y filas son planas.",
+        "section": "elevation"
+      },
+      {
+        "name": "La Regla del Filete",
+        "body": "El estado se lee por la forma de la línea: punteado es pendiente, pleno es saldado. El color nunca es la única señal.",
+        "section": "shapes"
+      }
     ],
     "dos": [
       "Do asignar a cada persona su color de denominación por orden de carga y repetirlo en toda aparición de esa persona.",

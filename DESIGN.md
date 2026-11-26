@@ -14,6 +14,10 @@ colors:
   hornero: "#a4501a"
   condor: "#3b566e"
   ballena: "#1d6a7a"
+  pinguino: "#2b3f8c"
+  carpincho: "#6b4a2b"
+  nandu: "#59631e"
+  tatu: "#7d2448"
   peligro: "#a32a20"
   aviso: "#6e4a00"
   aviso-fondo: "#fbefc8"
@@ -154,7 +158,7 @@ components:
 
 **Creative North Star: "El billete argentino"**
 
-La pantalla se imprime como papel moneda: un papel frío y apenas verdoso, tinta verde casi negra, y un color de denominación por persona sacado de la serie de fauna (guanaco, taruca, yaguareté, hornero, cóndor, ballena). Cada participante es un billete: una celda entera en su color, con guilloché fino y lo que puso en numeral condensado. El total del evento es el billete mayor, arriba de todo, en tinta.
+La pantalla se imprime como papel moneda: un papel frío y apenas verdoso, tinta verde casi negra, y un color de denominación por persona sacado de la serie de fauna (guanaco, taruca, yaguareté, hornero, cóndor, ballena, pingüino, carpincho, ñandú, tatú). Cada participante es un billete: una celda entera en su color, con guilloché fino y lo que puso en numeral condensado. El total del evento es el billete mayor, arriba de todo, en tinta.
 
 La densidad es de una mano y al sol: una sola columna de 480px como máximo, objetivos táctiles de 44px o más, contraste alto en todo (texto blanco sobre cada denominación supera 5:1). Los números mandan: los montos van siempre en Archivo condensado y pesado, con cifras tabulares; el texto queda en Archivo de ancho normal. El dato se dibuja: las barras tienen una sola escala para toda la pantalla, y el estado de una transferencia se lee por la forma del filete, no solo por el color.
 
@@ -170,13 +174,13 @@ Se rechaza explícitamente la lista gris con avatares de iniciales y el verde me
 
 ## Colors
 
-Una base monocroma de papel y tinta verdosa, con seis colores de denominación saturados y oscurecidos que identifican personas.
+Una base monocroma de papel y tinta verdosa, con diez colores de denominación saturados y oscurecidos que identifican personas.
 
 ### Primary
 - **Tinta de emisión** (tinta): texto principal, fondo del billete del total, botón principal, botón de ícono lleno, anillo de foco y selección de texto. Es el único color de acción.
 
 ### Secondary
-- **Serie de fauna** (guanaco, taruca, yaguareté, hornero, cóndor, ballena): uno por participante, en ese orden de carga, y se repiten desde el primero al pasar de seis. Fondo de la celda de persona, punto del pagador en cada gasto, ficha de "Entre quiénes" y relleno de la barra del receptor en cada transferencia. Están oscurecidos para que el blanco sea legible al sol. Si un id no se encuentra, se usa un gris verdoso neutro (#4c5a52).
+- **Serie de fauna** (guanaco, taruca, yaguareté, hornero, cóndor, ballena, pingüino, carpincho, ñandú, tatú): uno por participante, en ese orden de carga, y se repiten desde el primero al pasar de diez. Fondo de la celda de persona, punto del pagador en cada gasto, ficha de "Entre quiénes" y relleno de la barra del receptor en cada transferencia. Están oscurecidos para que el blanco sea legible al sol. Si un id no se encuentra, se usa un gris verdoso neutro (#4c5a52).
 
 ### Tertiary
 - **Rojo sello** (peligro): mensajes de error en línea.
@@ -192,7 +196,7 @@ Una base monocroma de papel y tinta verdosa, con seis colores de denominación s
 ### Named Rules
 **La Regla de la Denominación.** El color de denominación identifica a una persona y a nada más. Una persona tiene el mismo color en su celda, en su punto de pagador, en su ficha y en las barras. Nunca se usa para acciones, estados ni decoración.
 
-**La Regla del Guilloché.** El guilloché (anillos concéntricos blancos al 5 a 7% de opacidad) aparece solo sobre el billete del total y las celdas de persona. Ninguna otra superficie lo lleva.
+**La Regla del Guilloché.** El guilloché (una malla de hipotrocoides blancas al 13%) aparece solo sobre los billetes: el del total y los de persona. Ninguna otra superficie lo lleva. El blanco puro (#fff) es la tinta de esos grabados y del texto sobre denominación.
 
 ## Typography
 
@@ -202,9 +206,9 @@ Una base monocroma de papel y tinta verdosa, con seis colores de denominación s
 **Character:** Una sola familia en dos registros: condensada y negrísima para los montos, como el numeral impreso de un billete; de ancho normal y firme para todo lo que se lee.
 
 ### Hierarchy
-- **Display** (900, clamp(3.75rem, 19vw, 5.5rem), 0.9, wdth 62): el total gastado, dentro del billete. El signo "$" va a 0.45em, elevado.
+- **Display** (900, min(19vw, 5.5rem) hasta 7 caracteres, 0.9, wdth 62): el total gastado, dentro del billete. Con más caracteres se achica en proporción (piso de 2.25rem) para no pisar la marca de agua. El signo "$" va a 0.45em, elevado.
 - **Numeral grande** (900, 2rem, 1, wdth 65): monto de cada transferencia en el resultado.
-- **Numeral medio** (850, 1.625rem, 1, wdth 70): lo que puso cada persona, en su celda.
+- **Numeral medio** (900, 1.625rem, 0.95, wdth 66): lo que puso cada persona, como numeral de esquina de su billete.
 - **Numeral chico** (850, 1.375rem, 1.1, wdth 70): monto de cada gasto, alineado a la derecha.
 - **Headline** (750, 1.25rem): nombre del evento en el billete, balanceado.
 - **Title** (700, 1.0625rem): nombres de persona (750 en la celda), descripción del gasto, "quién → quién", texto de botones.
@@ -263,7 +267,7 @@ Firmes y de tinta, sin brillo.
 - **State:** marcada se rellena con el color de la persona, texto blanco y tilde blanca dibujada en SVG. Transición de 120ms en fondo y color.
 
 ### Cards / Containers
-- **Billete del total:** tinta con guilloché, esquinas de 14px, relleno de 14px 18px 18px. Contiene nombre del evento con editar, "Nuevo evento", el numeral display y el pie "gastado entre N personas · M gastos".
+- **Billete del total:** el billete mayor, con el mismo modelo que los de persona (ver "Celda de persona: el billete") pero en tinta, en proporción 178:100 y con la marca de agua a la derecha. Su emblema son dos monedas apiladas con el signo $ calado y canto estriado (`Monedas`), al 50% porque el numeral pasa cerca. Esquinas de 14px y margen lateral del 6.5% del ancho, para no pisar el microtexto. Contiene nombre del evento con editar, "Nuevo evento", el numeral display y el pie "gastado entre N personas · M gastos".
 - **Formulario de gasto:** blanco, esquinas de 14px, 16px de relleno, 14px entre campos, sombra "Hoja levantada". Acciones en grilla 2:1 (Guardar, Cancelar).
 - **Aviso:** franja ocre de esquinas de 10px, texto en peso 600.
 
@@ -273,8 +277,17 @@ Firmes y de tinta, sin brillo.
 - **Sobre el billete:** el campo del nombre del evento usa blanco al 10% con borde blanco al 40% y texto papel.
 - **Error:** mensaje en rojo sello, peso 600, 8px debajo.
 
-### Celda de persona
-La pieza firma. Celda entera en el color de denominación con guilloché, esquinas de 10px y 96px de alto mínimo. Arriba el nombre (750) y el botón de quitar; abajo "puso" en 0.8125rem y el monto en numeral medio; al pie, una barra de 6px: riel blanco al 28%, relleno blanco. Si la persona no se puede quitar, la cruz queda al 45%.
+### Celda de persona: el billete
+La pieza firma. Cada persona es un billete de la serie de fauna, en proporción 16:10, sobre el color de su denominación, con esquinas de 10px. El fondo es un SVG decorativo (`BilleteFondo`, viewBox 160×100, oculto a lectores de pantalla) con cinco capas:
+- **Malla de guilloché:** seis hipotrocoides concéntricas y giradas, centradas a la derecha, en trazo blanco de 0.25 al 13%.
+- **Marca de agua:** óvalo claro a la izquierda (degradado radial blanco del 26% al 0%) con el animal adentro.
+- **Animal de la denominación:** ilustración propia rellena con un rayado blanco a 40° (cada 1.25 unidades, como un grabado), al 72%. Uno por color, por orden de carga: guanaco (rojo), taruca (violeta), yaguareté (verde), hornero (naranja), cóndor (pizarra), ballena franca (petróleo), pingüino de Magallanes (índigo), carpincho (marrón), ñandú (oliva) y tatú (bordó); a partir de la undécima persona se repiten.
+- **Hilo de seguridad:** franja vertical blanca al 32% a 40% del ancho, con un punteado del color de la denominación.
+- **Marco con microtexto:** filete blanco al 45% a 3 unidades del borde y, por dentro, "DIVISOR DE GASTOS ·" repetido en letra de 2.3 al 40%.
+
+Encima va el contenido en grilla: el nombre (750, con una sombra de texto en tinta al 35%) arriba a la izquierda y el botón de quitar arriba a la derecha; abajo a la derecha, "puso" (700, 0.875rem) sobre el monto como numeral de esquina (900, wdth 66, 1.625rem, el numeral medio); al pie, del hilo hacia la derecha, la barra de 5px. Si la persona no se puede quitar, la cruz queda al 45%.
+
+**La Regla del Billete Propio.** El billete evoca la serie de fauna sin copiarla: ni el nombre del emisor, ni leyendas oficiales, ni imágenes de billetes reales. El microtexto dice el nombre de la app y los animales son ilustraciones propias.
 
 ### Barras
 Una barra mide un monto en la escala única. El relleno crece desde cero al aparecer y, al cambiar un monto, se estira desde su largo anterior: transición de ancho de 600ms con la curva de salida. En el resultado, el riel es papel hondo y el relleno es el color de quien recibe. Con movimiento reducido, la transición es instantánea.

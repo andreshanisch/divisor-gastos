@@ -9,6 +9,10 @@ export const DENOMINACIONES = [
   '#A4501A', // hornero
   '#3B566E', // cóndor
   '#1D6A7A', // ballena
+  '#2B3F8C', // pingüino
+  '#6B4A2B', // carpincho
+  '#59631E', // ñandú
+  '#7D2448', // tatú
 ] as const;
 
 export function colorDe(event: EventState, id: string): string {
