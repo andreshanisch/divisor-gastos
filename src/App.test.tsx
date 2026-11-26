@@ -116,3 +116,28 @@ describe('encabezado y participantes', () => {
     expect(screen.getByText('Juan')).toBeInTheDocument();
   });
 });
+
+describe('modo oscuro', () => {
+  it('el botón alterna el tema, lo marca en el documento y lo recuerda', async () => {
+    const user = userEvent.setup();
+    localStorage.setItem('divisor-gastos:tema', 'claro');
+    render(<App />);
+    const boton = screen.getByRole('button', { name: 'Modo oscuro' });
+    expect(boton).toHaveAttribute('aria-pressed', 'false');
+
+    await user.click(boton);
+    expect(boton).toHaveAttribute('aria-pressed', 'true');
+    expect(document.documentElement.dataset.tema).toBe('oscuro');
+    expect(localStorage.getItem('divisor-gastos:tema')).toBe('oscuro');
+
+    await user.click(boton);
+    expect(document.documentElement.dataset.tema).toBe('claro');
+    expect(localStorage.getItem('divisor-gastos:tema')).toBe('claro');
+  });
+
+  it('arranca con el tema guardado', () => {
+    localStorage.setItem('divisor-gastos:tema', 'oscuro');
+    render(<App />);
+    expect(screen.getByRole('button', { name: 'Modo oscuro' })).toHaveAttribute('aria-pressed', 'true');
+  });
+});

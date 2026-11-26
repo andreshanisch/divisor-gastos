@@ -18,8 +18,6 @@ export default function Participants({ event, onAdd, onRemove }: Props) {
   const [nombre, setNombre] = useState('');
   const [error, setError] = useState<string | null>(null);
   const pagado = computePaid(event);
-  // Una sola escala para todas las barras: la de quien más puso.
-  const escala = Math.max(1, ...pagado.values());
 
   // La lógica tira Error con mensaje listo para mostrar; el estado queda intacto.
   function intentar(accion: () => void): boolean {
@@ -65,9 +63,6 @@ export default function Participants({ event, onAdd, onRemove }: Props) {
                 <span className="persona-puso">
                   <span className="persona-etiqueta">puso</span>
                   <span className="persona-numeral">{formatARS(puso)}</span>
-                </span>
-                <span className="barra" aria-hidden="true">
-                  <span className="barra-relleno" style={{ width: `${(puso / escala) * 100}%` }} />
                 </span>
               </li>
             );

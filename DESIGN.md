@@ -219,6 +219,15 @@ Una base monocroma de papel y tinta verdosa, con diez colores de denominación s
 ### Named Rules
 **La Regla del Numeral Condensado.** Todo monto de dinero va en Archivo condensado (wdth 62 a 70), peso 850 o más, con cifras tabulares. El texto nunca se condensa; un monto nunca va en ancho normal.
 
+### Modo oscuro
+Un botón con luna o sol en la barra superior ("Modo oscuro", con aria-pressed) alterna el tema. La preferencia se guarda en localStorage (`divisor-gastos:tema`); sin preferencia se sigue al sistema, y el tema se aplica antes del primer dibujo. En oscuro el papel pasa a ser la noche y la tinta se aclara; los billetes no cambian:
+- **Papel** #101612, **papel hondo** #1c2520, **blanco** #18201b (campos y formulario).
+- **Tinta** #e6ebe2, **tinta suave** #a5b2aa, **filete** #34413a, **tinta tenue** #85928a, **apagado** #6f7c74.
+- **Éxito** #7fd4a3, **peligro** #ff907f, **aviso** #f3d58a sobre #3a2e10.
+- El billete del total queda en tinta #1e2a24 en los dos temas, con un filete interior blanco al 8% para separarse del papel oscuro.
+- Las fichas de "Entre quiénes" sin marcar usan texto en tinta (el color de denominación no alcanza contraste sobre la noche); marcadas, siguen igual.
+- Las sombras usan negro en lugar de tinta.
+
 ## Layout
 
 Una sola columna centrada de 480px como máximo, con 16px de margen lateral y 12px arriba. No hay breakpoints: en escritorio la misma columna queda centrada sobre el papel. Abajo se reservan 104px más el área segura para que la barra de acción fija no tape el último elemento.
@@ -228,7 +237,7 @@ El ritmo usa pasos de 4, 8, 12, 16 y 20px; 28px separa secciones; 8px es el espa
 La acción principal ("Agregar gasto") vive en una barra fija abajo, al ancho de la columna, con un fundido de 18px desde el papel transparente.
 
 ### Named Rules
-**La Regla de la Escala Única.** Todas las barras de la pantalla (lo que puso cada persona y cada transferencia) comparten una sola escala: lo que puso quien más puso. El largo de una barra es el monto, comparable con cualquier otra.
+**La Regla de la Escala Única.** Las barras solo viven en el resultado, nunca sobre un billete. Las de las transferencias comparten una sola escala: lo que puso quien más puso. El largo de una barra es el monto, comparable con cualquier otra.
 
 ## Elevation & Depth
 
@@ -258,7 +267,7 @@ Firmes y de tinta, sin brillo.
 - **Shape:** esquinas suaves (10px), 52px de alto mínimo (56px en la barra fija), ícono y texto separados por 8px.
 - **Principal:** fondo tinta, texto papel, peso 700 a 1.0625rem. Al presionar se achica a 0.98 en 120ms con la curva de salida (cubic-bezier(0.16, 1, 0.3, 1)). Deshabilitado: papel hondo con texto gris verdoso.
 - **Secundario:** contorno de 1.5px en tinta, fondo transparente; al presionar se rellena de papel hondo. Se usa para "Cancelar" y "Copiar para WhatsApp".
-- **Texto:** subrayado de 1px con 4px de separación, papel al 85%, solo sobre el billete ("Nuevo evento").
+- **Texto:** subrayado de 1px con 4px de separación, en tinta, en la barra superior ("Nuevo evento").
 - **De ícono:** 44px cuadrado, transparente, fondo papel hondo al presionar (blanco al 12 a 15% sobre tinta o denominación). La variante llena es de 48px en tinta, para "Agregar participante".
 - **Foco:** contorno de 3px en tinta con 2px de separación, en todos los controles.
 
@@ -267,7 +276,8 @@ Firmes y de tinta, sin brillo.
 - **State:** marcada se rellena con el color de la persona, texto blanco y tilde blanca dibujada en SVG. Transición de 120ms en fondo y color.
 
 ### Cards / Containers
-- **Billete del total:** el billete mayor, con el mismo modelo que los de persona (ver "Celda de persona: el billete") pero en tinta, en proporción 178:100 y con la marca de agua a la derecha. Su emblema son dos monedas apiladas con el signo $ calado y canto estriado (`Monedas`), al 50% porque el numeral pasa cerca. Esquinas de 14px y margen lateral del 6.5% del ancho, para no pisar el microtexto. Contiene nombre del evento con editar, "Nuevo evento", el numeral display y el pie "gastado entre N personas · M gastos".
+- **Barra superior:** fuera del billete, la marca "Divisor de gastos" (Archivo condensado 850) a la izquierda, y el botón de modo oscuro y "Nuevo evento" (botón de texto en tinta) a la derecha. El billete queda solo con el nombre del evento y el total.
+- **Billete del total:** el billete mayor, con el mismo modelo que los de persona (ver "Celda de persona: el billete") pero en tinta, en proporción 178:100 y con la marca de agua a la derecha. Su emblema son dos monedas apiladas con el signo $ calado y canto estriado (`Monedas`), al 50% porque el numeral pasa cerca. Esquinas de 14px y margen lateral del 6.5% del ancho, para no pisar el microtexto. Contiene nombre del evento con editar, el numeral display y el pie "gastado entre N personas · M gastos".
 - **Formulario de gasto:** blanco, esquinas de 14px, 16px de relleno, 14px entre campos, sombra "Hoja levantada". Acciones en grilla 2:1 (Guardar, Cancelar).
 - **Aviso:** franja ocre de esquinas de 10px, texto en peso 600.
 
@@ -285,7 +295,7 @@ La pieza firma. Cada persona es un billete de la serie de fauna, en proporción 
 - **Hilo de seguridad:** franja vertical blanca al 32% a 40% del ancho, con un punteado del color de la denominación.
 - **Marco con microtexto:** filete blanco al 45% a 3 unidades del borde y, por dentro, "DIVISOR DE GASTOS ·" repetido en letra de 2.3 al 40%.
 
-Encima va el contenido en grilla: el nombre (750, con una sombra de texto en tinta al 35%) arriba a la izquierda y el botón de quitar arriba a la derecha; abajo a la derecha, "puso" (700, 0.875rem) sobre el monto como numeral de esquina (900, wdth 66, 1.625rem, el numeral medio); al pie, del hilo hacia la derecha, la barra de 5px. Si la persona no se puede quitar, la cruz queda al 45%.
+Encima va el contenido en grilla: el nombre (750, con una sombra de texto en tinta al 35%) arriba a la izquierda y el botón de quitar arriba a la derecha; abajo a la derecha, "puso" (700, 0.875rem) sobre el monto como numeral de esquina (900, wdth 66, 1.625rem, el numeral medio). El billete no lleva barra: el numeral alcanza para ver quién puso más. Si la persona no se puede quitar, la cruz queda al 45%.
 
 **La Regla del Billete Propio.** El billete evoca la serie de fauna sin copiarla: ni el nombre del emisor, ni leyendas oficiales, ni imágenes de billetes reales. El microtexto dice el nombre de la app y los animales son ilustraciones propias.
 
@@ -300,7 +310,7 @@ Descripción en title, monto en numeral chico contra la derecha, pagador con su 
 ### Do:
 - **Do** asignar a cada persona su color de denominación por orden de carga y repetirlo en toda aparición de esa persona.
 - **Do** escribir todo monto en Archivo condensado (wdth 62 a 70), peso 850 a 900, con cifras tabulares.
-- **Do** dibujar las barras en la escala única de lo que puso quien más puso.
+- **Do** dibujar las barras de transferencia en la escala única de lo que puso quien más puso; los billetes no llevan barra.
 - **Do** marcar el estado con la forma del filete: punteado pendiente, pleno saldado.
 - **Do** mantener objetivos táctiles de 44px o más y contraste de al menos 4.5:1, también al sol.
 - **Do** usar los íconos SVG propios (trazo de 2px, puntas redondeadas, grilla de 24) para toda acción con ícono.
